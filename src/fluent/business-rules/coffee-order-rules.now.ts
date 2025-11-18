@@ -17,7 +17,7 @@ export const CalculateOrderTotal = BusinessRule({
     script: calculateOrderTotal,
     order: 100,
     active: true,
-    condition: "current.coffee_bean.changes() || current.milk_type.changes() || current.flavor_profile.changes() || current.caffeine_shots.changes() || current.serving_size.changes() || current.brew_method.changes()"
+    condition: "current.coffee_bean.changes() || current.milk_type.changes() || current.flavor_profile.changes() || current.caffeine_shots.changes() || current.serving_size.changes() || current.drink_type.changes() || current.brew_method.changes()"
 })
 
 // Business rule to validate order combinations

@@ -9,12 +9,13 @@ const initialState = {
     customer_name: '',
     customer_email: '',
     coffee_bean: null,
+    drink_type: 'cappuccino',
+    serving_size: 'medium',
     milk_type: null,
     flavor_profile: null,
     temperature_preference: 'hot',
     grind_size: 'medium',
     brew_method: 'espresso',
-    serving_size: 'cappuccino',
     sweetness_level: 5,
     caffeine_shots: 2,
     special_instructions: ''
@@ -74,27 +75,57 @@ export function CoffeeProvider({ children }) {
   };
 
   const calculatePrice = (order) => {
-    let total = 8.50; // Base price
+    let total = 6.50; // Base price
     
     // Add premium bean cost (simplified calculation)
     if (order.coffee_bean) {
       const bean = state.catalog.beans.find(b => b.sys_id?.value === order.coffee_bean);
       if (bean && bean.premium_grade?.value === 'true') {
-        total += 3.50;
+        total += 2.50;
       }
     }
 
     // Serving size multiplier
     const sizeMultipliers = {
-      piccolo: 0.7, cortado: 0.8, cappuccino: 1.0, flat_white: 1.0,
-      latte: 1.2, americano: 1.1, large: 1.5, extra_large: 2.0
+      small: 0.8, medium: 1.0, large: 1.4, extra_large: 1.8
     };
     const multiplier = sizeMultipliers[order.serving_size] || 1.0;
     total *= multiplier;
 
+    // Drink type adjustments
+    const drinkAdjustments = {
+      espresso: -1.50, // Less volume
+      americano: 0,
+      cappuccino: 0.50,
+      latte: 1.00,
+      flat_white: 1.25,
+      macchiato: 0.75,
+      cortado: 0.50,
+      mocha: 2.00, // Chocolate addition
+      gibraltar: 1.00,
+      red_eye: 1.50 // Extra shot included
+    };
+    total += drinkAdjustments[order.drink_type] || 0;
+
     // Extra shots
     if (order.caffeine_shots > 2) {
       total += (order.caffeine_shots - 2) * 0.75;
+    }
+
+    // Milk type cost
+    if (order.milk_type) {
+      const milk = state.catalog.milkTypes.find(m => m.sys_id?.value === order.milk_type);
+      if (milk && milk.additional_cost?.value) {
+        total += parseFloat(milk.additional_cost.value);
+      }
+    }
+
+    // Flavor profile cost
+    if (order.flavor_profile) {
+      const flavor = state.catalog.flavorProfiles.find(f => f.sys_id?.value === order.flavor_profile);
+      if (flavor && flavor.additional_cost?.value) {
+        total += parseFloat(flavor.additional_cost.value);
+      }
     }
 
     // Specialty brewing methods
@@ -164,7 +195,7 @@ export function CoffeeProvider({ children }) {
 
   useEffect(() => {
     calculatePrice(state.coffeeOrder);
-  }, [state.coffeeOrder, state.catalog.beans]);
+  }, [state.coffeeOrder, state.catalog.beans, state.catalog.milkTypes, state.catalog.flavorProfiles]);
 
   const value = {
     ...state,
