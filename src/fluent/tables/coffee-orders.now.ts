@@ -16,8 +16,7 @@ export const x_snc_coffee_desig_coffee_orders = Table({
         order_number: StringColumn({
             label: 'Order Number',
             maxLength: 40,
-            read_only: true,
-            default: 'javascript:global.getNextObjNumberPadded();'
+            read_only: true
         }),
         customer_name: StringColumn({
             label: 'Customer Name',
@@ -31,6 +30,36 @@ export const x_snc_coffee_desig_coffee_orders = Table({
         coffee_bean: ReferenceColumn({
             label: 'Coffee Bean Selection',
             referenceTable: 'x_snc_coffee_desig_coffee_beans',
+            mandatory: true
+        }),
+        drink_type: ChoiceColumn({
+            label: 'Type of Coffee Drink',
+            choices: {
+                espresso: { label: 'Espresso ☕', sequence: 0 },
+                americano: { label: 'Americano', sequence: 1 },
+                cappuccino: { label: 'Cappuccino', sequence: 2 },
+                latte: { label: 'Latte', sequence: 3 },
+                flat_white: { label: 'Flat White', sequence: 4 },
+                macchiato: { label: 'Macchiato', sequence: 5 },
+                cortado: { label: 'Cortado', sequence: 6 },
+                mocha: { label: 'Mocha', sequence: 7 },
+                cold_brew: { label: 'Cold Brew 🧊', sequence: 8 },
+                iced_coffee: { label: 'Iced Coffee', sequence: 9 },
+                frappuccino: { label: 'Frappuccino', sequence: 10 }
+            },
+            default: 'cappuccino',
+            mandatory: true
+        }),
+        serving_size: ChoiceColumn({
+            label: 'Serving Size',
+            choices: {
+                piccolo: { label: 'Piccolo (3oz)', sequence: 0 },
+                small: { label: 'Small (8oz)', sequence: 1 },
+                medium: { label: 'Medium (12oz)', sequence: 2 },
+                large: { label: 'Large (16oz)', sequence: 3 },
+                extra_large: { label: 'Extra Large (20oz)', sequence: 4 }
+            },
+            default: 'medium',
             mandatory: true
         }),
         milk_type: ReferenceColumn({
@@ -70,30 +99,15 @@ export const x_snc_coffee_desig_coffee_orders = Table({
         brew_method: ChoiceColumn({
             label: 'Brewing Method',
             choices: {
-                espresso: { label: 'Espresso', sequence: 0 },
-                pour_over: { label: 'Pour Over', sequence: 1 },
-                french_press: { label: 'French Press', sequence: 2 },
-                chemex: { label: 'Chemex', sequence: 3 },
-                aeropress: { label: 'AeroPress', sequence: 4 },
-                cold_brew: { label: 'Cold Brew', sequence: 5 },
+                espresso: { label: 'Espresso ☕', sequence: 0 },
+                pour_over: { label: 'Pour Over 🫖', sequence: 1 },
+                french_press: { label: 'French Press 🔄', sequence: 2 },
+                chemex: { label: 'Chemex ⚗️', sequence: 3 },
+                aeropress: { label: 'AeroPress 💨', sequence: 4 },
+                cold_brew: { label: 'Cold Brew 🧊', sequence: 5 },
                 drip: { label: 'Drip Coffee', sequence: 6 }
             },
             default: 'espresso',
-            mandatory: true
-        }),
-        serving_size: ChoiceColumn({
-            label: 'Serving Size',
-            choices: {
-                piccolo: { label: 'Piccolo (3oz)', sequence: 0 },
-                cortado: { label: 'Cortado (4oz)', sequence: 1 },
-                cappuccino: { label: 'Cappuccino (6oz)', sequence: 2 },
-                flat_white: { label: 'Flat White (6oz)', sequence: 3 },
-                latte: { label: 'Latte (8oz)', sequence: 4 },
-                americano: { label: 'Americano (8oz)', sequence: 5 },
-                large: { label: 'Large (12oz)', sequence: 6 },
-                extra_large: { label: 'Extra Large (16oz)', sequence: 7 }
-            },
-            default: 'cappuccino',
             mandatory: true
         }),
         sweetness_level: IntegerColumn({
@@ -129,8 +143,7 @@ export const x_snc_coffee_desig_coffee_orders = Table({
             maxLength: 500
         }),
         order_date: DateTimeColumn({
-            label: 'Order Date',
-            default: 'javascript:gs.nowDateTime()'
+            label: 'Order Date'
         }),
         requested_pickup_time: DateTimeColumn({
             label: 'Requested Pickup Time'

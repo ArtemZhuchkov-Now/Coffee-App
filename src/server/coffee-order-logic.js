@@ -2,7 +2,7 @@ import { gs, GlideRecord, GlideDateTime } from '@servicenow/glide'
 
 export function calculateOrderTotal(current, previous) {
     // Initialize base price
-    let totalPrice = 0;
+    let totalPrice = 6.50; // Base price
     
     // Get coffee bean price
     if (current.getValue('coffee_bean')) {
@@ -15,25 +15,17 @@ export function calculateOrderTotal(current, previous) {
             let servingMultiplier = 1.0;
             
             switch (servingSize) {
-                case 'piccolo':
-                    servingMultiplier = 0.5;
+                case 'small':
+                    servingMultiplier = 0.8;
                     break;
-                case 'cortado':
-                    servingMultiplier = 0.7;
-                    break;
-                case 'cappuccino':
-                case 'flat_white':
+                case 'medium':
                     servingMultiplier = 1.0;
                     break;
-                case 'latte':
-                case 'americano':
-                    servingMultiplier = 1.3;
-                    break;
                 case 'large':
-                    servingMultiplier = 1.8;
+                    servingMultiplier = 1.4;
                     break;
                 case 'extra_large':
-                    servingMultiplier = 2.3;
+                    servingMultiplier = 1.8;
                     break;
             }
             
@@ -41,6 +33,22 @@ export function calculateOrderTotal(current, previous) {
             totalPrice += (beanPrice * 0.03125) * servingMultiplier;
         }
     }
+    
+    // Add drink type adjustments
+    const drinkType = current.getValue('drink_type');
+    const drinkAdjustments = {
+        'espresso': -1.50, // Less volume
+        'americano': 0,
+        'cappuccino': 0.50,
+        'latte': 1.00,
+        'flat_white': 1.25,
+        'macchiato': 0.75,
+        'cortado': 0.50,
+        'mocha': 2.00, // Chocolate addition
+        'gibraltar': 1.00,
+        'red_eye': 1.50 // Extra shot included
+    };
+    totalPrice += drinkAdjustments[drinkType] || 0;
     
     // Add milk type cost
     if (current.getValue('milk_type')) {

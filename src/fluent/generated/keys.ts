@@ -37,6 +37,86 @@ declare global {
                         table: 'sys_ui_page'
                         id: '799ba2bb11aa421bbdf520b792ceada3'
                     }
+                    flavor_caramel: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: '9a1a608ce8924e7aabbcde3b8be31410'
+                    }
+                    flavor_cinnamon: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: '35c305bb124b407faa9e7005550ebde2'
+                    }
+                    flavor_coconut_cream: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: 'dc485be088774a2e8c7381223382d018'
+                    }
+                    flavor_dark_chocolate: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: '711f23126cbe4e0cabff2f9624893c23'
+                    }
+                    flavor_hazelnut: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: '6c4741252b7a4ab697372baf1c3fd4db'
+                    }
+                    flavor_irish_cream: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: 'fa5f76923f4242d993822d9bd62dcae8'
+                    }
+                    flavor_lavender_honey: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: 'fd93035ff236460a825a2cadf348f5ad'
+                    }
+                    flavor_pumpkin_spice: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: '37eabab67b1b4a849e835476903210d6'
+                    }
+                    flavor_raspberry_white_choc: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: '72aad05b484d463c99302182f5d58665'
+                    }
+                    flavor_vanilla: {
+                        table: 'x_snc_coffee_desig_flavor_profiles'
+                        id: '29606e1a09cf45c895314a28038d0fcf'
+                    }
+                    milk_2percent: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: '43c03903f6a344b48dc47b1a90d59e68'
+                    }
+                    milk_almond: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: 'b5342376a6ed4777bffe84793b354629'
+                    }
+                    milk_cashew: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: '9841bd3ac0004defa455dfa1b7e03d68'
+                    }
+                    milk_coconut: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: 'df3fce5bdadd45a88d806aa88c87b64e'
+                    }
+                    milk_macadamia: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: '7709d84699bb469e8f712c53f85bd094'
+                    }
+                    milk_oat: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: '0fb0a71b5e324f25a0fc4adedc55396e'
+                    }
+                    milk_skim: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: '7d0d81222dc34a9a8f6d280a3fef0f20'
+                    }
+                    milk_soy: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: '0ec383de696a411eb740d258507f69a5'
+                    }
+                    milk_whole_organic: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: 'e67ee28a3df745c590bba91621f12548'
+                    }
+                    milk_whole_regular: {
+                        table: 'x_snc_coffee_desig_milk_types'
+                        id: '852d444ea94344e89ff775d70ae38994'
+                    }
                     notify_order_status: {
                         table: 'sys_script'
                         id: '5c3cb5464ded4792873da69a7aff334b'
@@ -129,6 +209,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '0652e235181b4ebe958c7d2c4b0c4293'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'serving_size'
+                            value: 'medium'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '06780550f6824f9facd1ca7692026e43'
                         key: {
@@ -205,6 +294,15 @@ declare global {
                         key: {
                             name: 'x_snc_coffee_desig_premium_addins'
                             element: 'usage_instructions'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '0caf7426ac3547e49f2d4cee478f2ef5'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'cappuccino'
                         }
                     },
                     {
@@ -703,7 +801,17 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '4275f9d2ff4d425dbbaefb1c8c22410e'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'cold_brew'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '44299da6a1c140c4917f81df09890dac'
+                        deleted: true
                         key: {
                             name: 'x_snc_coffee_desig_coffee_orders'
                             element: 'serving_size'
@@ -822,6 +930,15 @@ declare global {
                         key: {
                             name: 'x_snc_coffee_desig_flavor_profiles'
                             element: 'intensity'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '4cc2082baf2e449fb6fb672b9dde82df'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'macchiato'
                         }
                     },
                     {
@@ -1124,6 +1241,24 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '6da0c3393b304a28815f9e92dd946cfd'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'cortado'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '6e43f9d9235641ea8fd0c7690e9f1dd4'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'flat_white'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '6ecab303808641359c63754c9465784b'
                         key: {
                             name: 'x_snc_coffee_desig_flavor_profiles'
@@ -1183,6 +1318,15 @@ declare global {
                             name: 'x_snc_coffee_desig_milk_types'
                             element: 'fat_content'
                             value: 'nonfat'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '72d963a485744ce7a4aa121b2ad9624e'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'iced_coffee'
                         }
                     },
                     {
@@ -1299,6 +1443,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '7c67d08db1624a5bbaba4298af3bb435'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'frappuccino'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '7c76101055aa496d91c80728dfe8c734'
                         key: {
@@ -1391,6 +1544,15 @@ declare global {
                         key: {
                             name: 'x_snc_coffee_desig_coffee_beans'
                             element: 'bean_name'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '86b60e00e72944e381beeb61e958f85f'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'americano'
                         }
                     },
                     {
@@ -1508,6 +1670,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '92bc7d14740f4041aa967315289fb0b8'
+                        deleted: true
                         key: {
                             name: 'x_snc_coffee_desig_coffee_orders'
                             element: 'serving_size'
@@ -1577,6 +1740,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '9596b1c3c95646c6a0a8e056f9ca7b0a'
+                        deleted: true
                         key: {
                             name: 'x_snc_coffee_desig_coffee_orders'
                             element: 'serving_size'
@@ -1734,6 +1898,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '9ffccca6997c442194bad0e8325638e3'
+                        deleted: true
                         key: {
                             name: 'x_snc_coffee_desig_coffee_orders'
                             element: 'serving_size'
@@ -1747,6 +1912,15 @@ declare global {
                             name: 'x_snc_coffee_desig_coffee_beans'
                             element: 'description'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'a41b32ce3dd24b4eada5398fe1667de1'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'mocha'
                         }
                     },
                     {
@@ -2275,6 +2449,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: 'd2033999b3d74f309c59860012005e42'
+                        deleted: true
                         key: {
                             name: 'x_snc_coffee_desig_coffee_orders'
                             element: 'serving_size'
@@ -2296,6 +2471,15 @@ declare global {
                             name: 'x_snc_coffee_desig_premium_addins'
                             element: 'application_method'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'd2cecdc9bc6547f7aa4d52113d8a3f0d'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'latte'
                         }
                     },
                     {
@@ -2541,6 +2725,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: 'e866d3f561ae4c359d4edaa5085cf87c'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'serving_size'
+                            value: 'small'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'e8efe82be0a943bfbd38fc1b4f68b6f2'
                         key: {
@@ -2555,6 +2748,15 @@ declare global {
                             name: 'x_snc_coffee_desig_milk_types'
                             element: 'steaming_quality'
                             value: 'not_recommended'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'e9c9ea6c6e274c07a73d0e63735b7aee'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            value: 'espresso'
                         }
                     },
                     {
@@ -2652,6 +2854,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'f6a83ef45bab45e998c849442c10b940'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: 'f735a7a2b2cb40fc829156028148cfa0'
                         key: {
@@ -2712,6 +2923,14 @@ declare global {
                             name: 'x_snc_coffee_desig_coffee_orders'
                             element: 'grind_size'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'fe244c9800944454990e91fecef68d4b'
+                        key: {
+                            name: 'x_snc_coffee_desig_coffee_orders'
+                            element: 'drink_type'
                         }
                     },
                     {
