@@ -1,0 +1,6 @@
+{
+  "scope": "x_snc_coffee_desig",
+  "scopeId": "83fbc95593d9b29010ae60b877373c17",
+  "name": "Coffee Desig",
+  "tsconfigPath": "./src/server/tsconfig.json"
+}

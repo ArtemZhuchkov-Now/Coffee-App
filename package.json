@@ -1,0 +1,22 @@
+{
+    "name": "x-snc-coffee-desig",
+    "version": "1.0.0",
+    "description": "[BUILD AGENT GENERATED]:  A premium coffee ordering application that allows users to customize every aspect of their coffee experience including bean selection, milk types, flavors, temperature preferences, and specialty add-ins for the ultimate personalized coffee creation",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "scripts": {
+        "build": "now-sdk build",
+        "deploy": "now-sdk install",
+        "transform": "now-sdk transform",
+        "types": "now-sdk dependencies"
+    },
+    "devDependencies": {
+        "@servicenow/sdk": "4.0.2",
+        "@servicenow/glide": "26.0.1",
+        "eslint": "8.50.0",
+        "@servicenow/eslint-plugin-sdk-app-plugin": "4.0.2"
+    }
+}
